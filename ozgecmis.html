@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özgeçmiş - Web Projesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; line-height: 1.6; }
+        header { background: #212529; color: white; padding: 40px 0; margin-bottom: 30px; }
+        section { background: white; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #0d6efd; padding-bottom: 10px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Menü -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Proje Ödevi</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ozgecmis.html">Özgeçmiş</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Semantic Header: Kişisel Bilgiler -->
+    <header>
+        <div class="container text-center">
+            <h1>Veysel Samed Kaya</h1>
+            <p>Bilgisayar Mühendisliği Öğrencisi | Sakarya Üniversitesi</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Semantic Section: Eğitim -->
+        <section>
+            <h2>Eğitim Bilgileri</h2>
+            <article>
+                <h4>Sakarya Üniversitesi (SAÜ)</h4>
+                <p><strong>Bölüm:</strong> Bilgisayar Mühendisliği</p>
+                <p><strong>Dönem:</strong> 2025-2026 Bahar Dönemi</p>
+            </article>
+        </section>
+
+        <!-- Semantic Section: Alınan Dersler -->
+        <section>
+            <h2>2025-2026 Bahar Dönemi Derslerim</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <article>
+                        <h5>Temel Bilimler ve Genel</h5>
+                        <ul>
+                            <li>Matematik 2 (Calculus II)</li>
+                            <li>Fizik 2 (Elektrik ve Manyetizma)</li>
+                            <li>İstatistik ve Olasılık</li>
+                            <li>İngilizce</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="col-md-6">
+                    <article>
+                        <h5>Mesleki Gelişim</h5>
+                        <ul>
+                            <li>Web Teknolojileri</li>
+                            <li>Nesneye Dayalı Programlama (C#)</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Semantic Section: Yetkinlikler -->
+        <section>
+            <h2>Teknik Beceriler</h2>
+            <p><strong>Diller:</strong> C++, C# (Windows Forms), HTML, PHP</p>
+            <p><strong>Araçlar:</strong> VS Code, Code::Blocks, GitHub</p>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
