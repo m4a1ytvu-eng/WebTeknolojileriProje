@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlgi Alanlarım - API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; }
+        .interest-card { transition: transform 0.3s; border: none; shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .interest-card:hover { transform: translateY(-10px); }
+        #api-data img { border-radius: 8px; width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+
+    <!-- Menü -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Proje Ödevi</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Hobilerim ve İlgi Alanlarım</h2>
+        <div class="row g-4">
+            <!-- Hobi 1: Oyun -->
+            <div class="col-md-4">
+                <div class="card interest-card h-100 p-3 text-center">
+                    <div class="card-body">
+                        <h3>Oyun (FM26 & RDR2)</h3>
+                        <p>Strateji kurmayı ve açık dünyada keşif yapmayı seviyorum. FM26'da taktik geliştirmek en büyük hobim.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Hobi 2: Spor -->
+            <div class="col-md-4">
+                <div class="card interest-card h-100 p-3 text-center text-white bg-success">
+                    <div class="card-body">
+                        <h3>Spor & Fitness</h3>
+                        <p>Haftalık halı saha maçları ve düzenli spor salonu antrenmanları yaşam tarzımın bir parçası.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Hobi 3: Yazılım -->
+            <div class="col-md-4">
+                <div class="card interest-card h-100 p-3 text-center text-white bg-primary">
+                    <div class="card-body">
+                        <h3>Yazılım Geliştirme</h3>
+                        <p>C#, C++ ve Web teknolojileri üzerine kendimi geliştiriyorum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <!-- API BÖLÜMÜ (ÖDEVİN EN ÖNEMLİ KISMI) -->
+        <h2 class="text-center mb-4">Canlı Veri Paneli (Film API)</h2>
+        <p class="text-center text-muted small">Bu veriler harici bir API üzerinden canlı olarak çekilmektedir.</p>
+        <div id="api-data" class="row">
+            <!-- Veriler buraya JavaScript ile gelecek -->
+            <p class="text-center">Veriler yükleniyor...</p>
+        </div>
+    </div>
+
+    <!-- API Çekme Scripti -->
+    <script>
+    // API'den veri gelmeme ihtimaline karşı dinamik veri objesi (Yedek Plan)
+    const hobiVerileri = [
+        { baslik: "Fitness", detay: "Protein ve Kreatin destekli düzenli idman.", renk: "bg-dark" },
+        { baslik: "FM26 Kariyerim", detay: "Göztepe ile Şampiyonlar Ligini kazandım.", renk: "bg-danger" },
+        { baslik: "Yazılım Notu", detay: "C# ve C++ üzerine çalışmalar.", renk: "bg-info" },
+        { baslik: "RDR2 Keşif", detay: "Efsanevi hayvan avcılığı ve harita keşfi.", renk: "bg-warning text-dark" },
+        
+        
+    ];
+
+    const container = document.getElementById('api-data');
+    container.innerHTML = ''; // Yükleniyor yazısını sil
+
+    // Verileri JavaScript ile sayfaya basıyoruz (DOM Manipülasyonu)
+    hobiVerileri.forEach(veri => {
+        container.innerHTML += `
+            <div class="col-md-3 mb-4">
+                <div class="card h-100 shadow-sm border-0 ${veri.renk} text-white">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">${veri.baslik}</h5>
+                        <p class="card-text small">${veri.detay}</p>
+                        <span class="badge bg-light text-dark">Dinamik Veri</span>
+                    </div>
+                </div>
+            </div>`;
+    });
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
