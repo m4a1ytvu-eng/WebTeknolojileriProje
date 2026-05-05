@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Proje Ödevi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .contact-form { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+    <!-- Menü -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Proje Ödevi</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="iletisim.html">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 contact-form">
+                <h2 class="text-center mb-4">Bana Ulaşın</h2>
+                <!-- Form verileri gonder.php veya baska bir yere gitmeyecek, biz JS ile kontrol edecegiz -->
+                <form id="contactForm" action="gonderilen.html" method="GET" onsubmit="return validateForm()">
+                    <div class="mb-3">
+                        <label class="form-label">Ad Soyad</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Adınızı yazınız...">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">E-posta</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="isim@ornek.com">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Konu</label>
+                        <select class="form-select" name="subject" id="subject">
+                            <option value="">Seçiniz...</option>
+                            <option value="Öneri">Öneri</option>
+                            <option value="Hata Bildirimi">Hata Bildirimi</option>
+                            <option value="İş Birliği">İş Birliği</option>
+                            <option value="Diğer">Diğer</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 d-none" id="otherSubjectArea">
+                        <label class="form-label">Lütfen Konuyu Belirtin</label>
+                        <input type="text" id="otherSubject" name="otherSubject" class="form-control" placeholder="Konu nedir?">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mesajınız</label>
+                        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Gönder</button>
+                    <button type="reset" class="btn btn-outline-secondary w-100 mt-2">Temizle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById('subject').addEventListener('change', function() {
+    let otherArea = document.getElementById('otherSubjectArea');
+    if (this.value === 'Diğer') {
+        otherArea.classList.remove('d-none');
+    } else {
+        otherArea.classList.add('d-none');
+    }
+});
+
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let subject = document.getElementById("subject").value;
+            let message = document.getElementById("message").value;
+
+            if (name == "" || email == "" || subject == "" || message == "") {
+                alert("Lütfen tüm alanları doldurunuz!");
+                return false;
+            }
+
+            // E-posta format kontrolü
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Lütfen geçerli bir e-posta adresi giriniz!");
+                return false;
+            }
+
+            return true; // Her şey tamamsa gonderilen.html'e gider
+        }
+    </script>
+
+</body>
+</html>
