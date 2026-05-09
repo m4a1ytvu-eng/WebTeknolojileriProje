@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - Web Projesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; min-height: 100vh; }
+        .login-section { min-height: calc(100vh - 56px); display: flex; align-items: center; justify-content: center; }
+        .login-card { border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Proje Ödevi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="login.html">Giriş</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container login-section">
+        <div class="card login-card p-4 bg-white">
+            <h3 class="text-center mb-4">Öğrenci Girişi</h3>
+            <form id="loginForm" onsubmit="return validateLogin(event)">
+                <div class="mb-3">
+                    <label class="form-label">E-posta</label>
+                    <input type="text" id="email" class="form-control" placeholder="b211210001@sakarya.edu.tr">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Şifre</label>
+                    <input type="password" id="password" class="form-control" placeholder="Şifreniz">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-2">Giriş Yap</button>
+            </form>
+            <div id="errorMessage" class="text-danger mt-3 text-center small" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); 
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const errorDiv = document.getElementById("errorMessage");
+            
+            // 1. Boş Alan Kontrolü
+            if (email === "" || password === "") {
+                errorDiv.style.display = "block";
+                errorDiv.innerText = "Lütfen tüm alanları doldurunuz!";
+                return false;
+            }
+
+            // 2. Mail Formatı Kontrolü (@sakarya.edu.tr şartı)
+            const emailPattern = /^[a-zA-Z0-9._-]+@sakarya\.edu\.tr$/;
+            if (!emailPattern.test(email)) {
+                errorDiv.style.display = "block";
+                errorDiv.innerText = "Lütfen 'öğrencino@sakarya.edu.tr' formatında giriniz!";
+                return false;
+            }
+
+            // 3. Başarılı Giriş Mesajı
+            const ogrenciNo = email.split('@')[0];
+            alert("Hoşgeldiniz " + ogrenciNo);
+            window.location.href = "index.html"; 
+            return true;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
