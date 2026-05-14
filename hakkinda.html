@@ -7,18 +7,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-    <!-- Menü  -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Proje Ödevi</a>
+            <a class="navbar-brand" href="index.html">
+    <span class="user-name">Veysel Samed Kaya</span>
+</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="hakkinda.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link active-link" href="hakkinda.html">Hakkımda</a></li>
                     <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
                     <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
                     <li class="nav-item"><a class="nav-link" href="ilgialanlarim.html">İlgi Alanlarım</a></li>
                     <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Giriş</a></li>
@@ -27,44 +32,50 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <div class="row text-center">
-            <div class="col-12">
-                <!-- Buraya  kendi fotoğrafınmı koyacağım -->
-                <img src="vskaya.jpg.png" alt="Profil Fotoğrafı" class="profile-img shadow">
-                <h1>Merhaba, Ben Veysel Samed Kaya</h1>
-                <p class="lead">Sakarya Üniversitesi Bilgisayar Mühendisliği Öğrencisiyim.</p>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <h3>Hobilerim & İlgi Alanlarım</h3>
-                <ul>
-                    <li><strong>Spor:</strong> Haftalık halı saha maçları vazgeçilmezim.Haftalık düzenli ağırlık antrenmanları da yaparım.</li>
-                    <li><strong>Sanat:</strong> Resim konusunda pek yetenekli olmasamda ney çalmayı çok severim</li>
-                    <li><strong>Gaming:</strong> FM26'da alt liglerden takım alıp kariyer yapmayı seviyorum.Red Dead Redemption 2 dünyasında vakit geçirmek ve CS2/Valorant oynamak hobilerim arasında.</li>
-                    <li><strong>Dijital Yatırım:</strong> Finansal piyasaları takip ederim.</li>
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                <div class="custom-card shadow-lg">
                     
-            </div>
-            <div class="col-md-6 text-center">
-                <h3>Tanıtım Videosu</h3>
-                <!-- buraya kendi videomu veya bir futbol videosu linkini koycacağım -->
-                <div class="ratio ratio-16x9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/bRZJp8ulY9Y?si=JknZiJL2Hnz1Ww1B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
+                    <div class="text-center mb-5">
+                        <img src="vskaya.jpg.png" alt="Veysel Samed Kaya" class="profile-img shadow">
+                        <h1 class="display-5 fw-bold mt-3">Merhaba, Ben Veysel Samed Kaya</h1>
+                        <p class="lead opacity-75">Sakarya Üniversitesi | Bilgisayar Mühendisliği Öğrencisi</p>
+                    </div>
+
+                    <hr class="bg-white opacity-25 my-5">
+
+                    <div class="row g-5">
+                        <div class="col-md-6">
+                            <h3 class="h4 mb-4 border-start border-4 border-info ps-3">Hobilerim & İlgi Alanlarım</h3>
+                            <ul class="custom-list">
+                                <li><strong>Spor:</strong> Haftalık halı saha maçları ve düzenli ağırlık antrenmanları yaparım.</li>
+                                <li><strong>Sanat:</strong> Ney çalmayı çok severim, bu enstrümanla huzur buluyorum.</li>
+                                <li><strong>Gaming:</strong> FM26 kariyerleri, RDR2 dünyası, CS2 ve Valorant vazgeçilmez hobilerim.</li>
+                                <li><strong>Dijital Yatırım:</strong> Finansal piyasaları ve gümüş fonlarını yakından takip ederim.</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <h3 class="h4 mb-4 border-start border-4 border-info ps-3 text-start">Tanıtım Videosu</h3>
+                            <div class="ratio ratio-16x9 rounded-4 overflow-hidden border border-white border-opacity-10 shadow">
+                                <iframe src="https://www.youtube.com/embed/bRZJp8ulY9Y" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> </div>
         </div>
-    </div>
+    </main>
+
+    <footer class="mt-auto py-4 text-center">
+        <div class="container">
+            <p class="mb-1 fw-bold">Veysel Samed Kaya | Sakarya Üniversitesi</p>
+            <p class="small opacity-50 mb-0">&copy; 2026 Web Teknolojileri Projesi - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<footer class="bg-dark text-white pt-4 pb-2 mt-5">
-    <div class="container text-center">
-        <p class="mb-1">Veysel Samed Kaya | Sakarya Üniversitesi</p>
-        <p class="small opacity-50">&copy; 2026 Web Teknolojileri Projesi - Tüm Hakları Saklıdır.</p>
-    </div>
-</footer>
 </html>

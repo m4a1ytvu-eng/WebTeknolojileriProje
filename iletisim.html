@@ -12,15 +12,18 @@
     <!-- Menü -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Proje Ödevi</a>
+            <a class="navbar-brand" href="index.html">
+    <span class="user-name">Veysel Samed Kaya</span>
+</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkımda</a></li>
                     <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
                     <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
                     <li class="nav-item"><a class="nav-link" href="ilgialanlarim.html">İlgi Alanlarım</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="iletisim.html">İletişim</a></li>
+                    <li class="nav-item"><a class="nav-link active-link" href="iletisim.html">İletişim</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Giriş</a></li>
                 </ul>
             </div>
@@ -33,35 +36,73 @@
                 <h2 class="text-center mb-4">Bana Ulaşın</h2>
                 <!-- Form verileri gonder.php veya baska bir yere gitmeyecek, biz JS ile kontrol edecegiz -->
                 <form id="contactForm" action="gonderilen.html" method="GET" onsubmit="return validateForm()">
-                    <div class="mb-3">
-                        <label class="form-label">Ad Soyad</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Adınızı yazınız...">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">E-posta</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="isim@ornek.com">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Konu</label>
-                        <select class="form-select" name="subject" id="subject">
-                            <option value="">Seçiniz...</option>
-                            <option value="Öneri">Öneri</option>
-                            <option value="Hata Bildirimi">Hata Bildirimi</option>
-                            <option value="İş Birliği">İş Birliği</option>
-                            <option value="Diğer">Diğer</option>
-                        </select>
-                    </div>
+                    <div class="container mt-5" id="app">
+    <div class="custom-card shadow-lg p-5">
+        <h2 class="text-center mb-4">İletişim Formu</h2>
+        <form id="contactForm">
+            <div class="mb-3">
+                <label class="form-label">Ad Soyad:</label>
+                <input type="text" v-model="formData.name" id="name" class="form-control" placeholder="Adınızı yazınız...">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">E-posta:</label>
+                <input type="email" v-model="formData.email" id="email" class="form-control" placeholder="isim@ornek.com">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Telefon:</label>
+                <input type="text" v-model="formData.phone" id="phone" class="form-control" placeholder="Sadece rakam giriniz (Örn: 05xx)">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Konu:</label>
+                <select v-model="formData.subject" id="subject" class="form-control">
+                    <option value="">Seçiniz...</option>
+                    <option value="Öneri">Öneri</option>
+                    <option value="Şikayet">Şikayet</option>
+                    <option value="Diğer">Diğer</option>
+                </select>
+            </div>
+
+           <div class="mb-3">
+    <label class="form-label d-block text-white">Cinsiyet:</label>
+    
+    <div class="form-check form-check-inline text-white">
+        <input class="form-check-input" type="radio" name="gender" id="genderErkek" v-model="formData.gender" value="Erkek">
+        <label class="form-check-label" for="genderErkek" style="cursor: pointer;">Erkek</label>
+    </div>
+    
+    <div class="form-check form-check-inline text-white">
+        <input class="form-check-input" type="radio" name="gender" id="genderKadin" v-model="formData.gender" value="Kadın">
+        <label class="form-check-label" for="genderKadin" style="cursor: pointer;">Kadın</label>
+    </div>
+</div>
+
+            <div class="mb-4">
+                <label class="form-label">Mesajınız:</label>
+                <textarea v-model="formData.message" id="message" class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="button" onclick="checkJS()" class="btn btn-info text-white">Standart JS ile Denetle</button>
+                <button type="button" @click="checkVue" class="btn btn-primary">Vue.js ile Denetle & Gönder</button>
+                <button type="reset" class="btn btn-outline-light mt-2">Temizle</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="iletisim.js"></script>
+
+                    
 
                     <div class="mb-3 d-none" id="otherSubjectArea">
                         <label class="form-label">Lütfen Konuyu Belirtin</label>
                         <input type="text" id="otherSubject" name="otherSubject" class="form-control" placeholder="Konu nedir?">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Mesajınız</label>
-                        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Gönder</button>
-                    <button type="reset" class="btn btn-outline-secondary w-100 mt-2">Temizle</button>
+                    
                 </form>
             </div>
         </div>
@@ -101,10 +142,10 @@
     </script>
 
 </body>
-<footer class="bg-dark text-white pt-4 pb-2 mt-5">
-    <div class="container text-center">
-        <p class="mb-1">Veysel Samed Kaya | Sakarya Üniversitesi</p>
-        <p class="small opacity-50">&copy; 2026 Web Teknolojileri Projesi - Tüm Hakları Saklıdır.</p>
-    </div>
-</footer>
+<footer class="mt-auto py-4 text-center" style="background-color: #167d7d;">
+        <div class="container">
+            <p class="mb-1 fw-bold">Veysel Samed Kaya | Sakarya Üniversitesi</p>
+            <p class="small opacity-50 mb-0">&copy; 2026 Kocaelispor Miras Sayfası</p>
+        </div>
+    </footer>
 </html>

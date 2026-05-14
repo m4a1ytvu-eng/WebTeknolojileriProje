@@ -10,15 +10,18 @@
 <body>
 
     <!-- Menü -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #167d7d !important;">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Proje Ödevi</a>
+           <a class="navbar-brand" href="index.html">
+    <span class="user-name">Veysel Samed Kaya</span>
+</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkında</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkımda</a></li>
                     <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link active-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
                     <li class="nav-item"><a class="nav-link" href="ilgialanlarim.html">İlgi Alanlarım</a></li>
                     <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Giriş</a></li>
@@ -27,10 +30,19 @@
         </div>
     </nav>
 
-    <div class="city-header">
-        <h1>Kocaeli - Sanayi ve Turizm Başkenti</h1>
-        <p>Mavi ve Yeşilin Buluştuğu Körfez Şehri</p>
+   <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="custom-card p-5 text-center shadow-lg" style="margin-bottom: -20px;">
+                <h1 class="display-4 fw-bold mb-3" style="letter-spacing: 3px; border-bottom: 3px solid #000; display: inline-block; padding-bottom: 10px;">
+                    KOCAELİ
+                </h1>
+                <p class="lead fw-bold fs-4">Sanayi ve Turizm Başkenti</p>
+                <p class="fst-italic opacity-75">Mavi ve Yeşilin Buluştuğu Körfez Şehri</p>
+            </div>
+        </div>
     </div>
+</div>
 
     <!-- 4 Resimli Kocaeli Slider -->
     <div id="cityCarousel" class="carousel slide mt-4 container" data-bs-ride="carousel">
@@ -95,6 +107,10 @@
         </div>
     </div>
 </div>
+            </div>
+            
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -102,10 +118,10 @@
         
     
 </body>
-    <footer class="bg-dark text-white pt-4 pb-2 mt-5">
-    <div class="container text-center">
-        <p class="mb-1">Veysel Samed Kaya | Sakarya Üniversitesi</p>
-        <p class="small opacity-50">&copy; 2026 Web Teknolojileri Projesi - Tüm Hakları Saklıdır.</p>
-    </div>
-</footer>
+    <footer class="mt-auto py-4 text-center">
+        <div class="container">
+            <p class="mb-1 fw-bold">Veysel Samed Kaya | Sakarya Üniversitesi</p>
+            <p class="small opacity-50 mb-0">&copy; 2026 Web Teknolojileri Projesi - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
 </html>

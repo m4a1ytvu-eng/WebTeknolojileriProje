@@ -1,32 +1,119 @@
+/* GENEL AYARLAR */
+body { 
+    background-color: #d1f2eb; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR (Menü) */
+.navbar {
+    background-color: #167d7d !important; 
+}
+
+/* KOYU YEŞİL/TURKUAZ KUTULAR */
+.custom-card, .about-card, .cv-card, .contact-form, .interest-card { 
+    background-color: #45818e !important; 
+    border-radius: 15px; 
+    padding: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border: none;
+}
+
+/* YAZILAR SİMSİYAH */
+h1, h2, h3, h4, h5, p, li, label, span, strong, a.nav-link {
+    color: #000000 !important; /* TAM SİYAH YAZILAR */
+    font-weight: 600; /* Siyahın yeşil üstünde belirgin olması için kalınlaştırdık */
+}
+
+/* PROFİL RESMİ */
 .profile-img { 
-        width: 250px; 
-        height: 250px; 
-        object-fit: cover; /* Resmi ezmeden kutuya sığdırır */
-        border-radius: 50%; 
-        margin-bottom: 20px; 
-        border: 5px solid #3d7063;
-    }
-    body { background-color: #f4f7f6; }
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+    object-position: top;
+    border-radius: 50%; 
+    border: 4px solid #000000; /* Resim çerçevesi de siyah */
+    margin-bottom: 15px;
+}
 
-     body { background-color: #f8f9fa; }
-        .contact-form { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }   
+/* LİSTE SİMGELERİ */
+ul { list-style: none; padding: 0; }
+ul li::before { 
+    content: "•"; 
+    color: #000000; 
+    font-weight: bold; 
+    display: inline-block; 
+    width: 1em;
+}
 
-        body { background-color: #f4f7f6; }
-        .interest-card { transition: transform 0.3s; border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .interest-card:hover { transform: translateY(-10px); }
-        #api-data img { border-radius: 8px; width: 100%; height: auto; }
+/* FOOTER */
+footer {
+    background-color: #167d7d;
+    color: #000000 !important;
+    padding: 15px 0;
+    font-weight: bold;
+    border-top: 2px solid #000000;
+}
 
-        body { background-color: #f8f9fa; }
-        .hero-section { padding: 60px 0; background: #343a40; color: white; text-align: center; }
+/* ŞEHRİM SAYFASI ÖZEL AYARLARI */
 
-        body { background-color: #f4f7f6; min-height: 100vh; }
-        .login-section { min-height: calc(100vh - 56px); display: flex; align-items: center; justify-content: center; }
-        .login-card { border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+/* Slider resimlerinin boyutunu sabitleyer */
+.carousel-item img {
+    height: 500px; /* İstediğin yüksekliğe göre ayarla */
+    object-fit: cover;
+    border: 3px solid #000000; /* Resimlerin etrafına ince siyah çerçeve */
+}
 
-        body { background-color: #f8f9fa; line-height: 1.6; }
-        header { background: #212529; color: white; padding: 40px 0; margin-bottom: 30px; }
-        section { background: white; padding: 25px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h2 { border-bottom: 2px solid #0d6efd; padding-bottom: 10px; margin-bottom: 20px; }
+/* Slider üzerindeki yazıların (caption) siyah ve okunur olması */
+.carousel-caption {
+    background: rgba(211, 242, 235, 0.7); /* Arka plan renginden şeffaf bir katman */
+    border-radius: 15px;
+    padding: 15px;
+}
 
-        
-        
+.carousel-caption h5, .carousel-caption p {
+    color: #000000 !important; /* Slider içindeki yazılar da siyah */
+    font-weight: bold;
+}
+
+/* Slider butonlarını (sağ-sol) siyah yapalım ki görünsün */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(1); /* Beyaz ikonları siyaha çevirir */
+}
+
+/* Navbar Sol Üst İsim Fontu */
+.navbar-brand .user-name {
+    font-family: 'Segoe UI', sans-serif; /* Temiz bir font */
+    font-weight: 300; /* ince font (Light) */
+    letter-spacing: 1px; /* Harf aralarını çok hafif açar */
+    text-transform: uppercase; /* hepsini büyük harf yapar */
+    font-size: 1.2rem;
+    color: #ffffff !important;
+}
+
+/* Üzerine gelince çok hafif parlaması için  */
+.navbar-brand:hover .user-name {
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+
+/* Aktif Sayfa Linkini Beyaz ve Belirgin Yapar */
+.navbar-nav .nav-link.active-link {
+    color: #ffffff !important; /* Jilet gibi beyaz */
+    font-weight: 800 !important; /* Daha kalın yaparak iyice belli eder */
+    border-bottom: 2px solid #ffffff; /* Altına ince bir çizgi atar, çok şık durur */
+}
+
+/* Diğer linklerin sönük kalması için (opsiyonel) */
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.7) !important; /* Hafif şeffaf beyaz */
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff !important; /* Üstüne gelince parlar */
+}
