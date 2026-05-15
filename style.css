@@ -1,119 +1,145 @@
-/* GENEL AYARLAR */
+/* --- 1. GENEL TEMELLER --- */
+:root {
+    --ana-yesil: #167d7d;
+    --arka-plan: #d1f2eb;
+    --antrasit: #2c3e50;
+    --tam-siyah: #000000;
+}
+
 body { 
-    background-color: #d1f2eb; 
+    background-color: var(--arka-plan); 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
+    color: var(--tam-siyah);
 }
 
-/* NAVBAR (Menü) */
+/* --- 2. NAVBAR (MENÜ) --- */
 .navbar {
-    background-color: #167d7d !important; 
+    background-color: var(--ana-yesil) !important; 
+    padding: 1rem 0;
 }
 
-/* KOYU YEŞİL/TURKUAZ KUTULAR */
-.custom-card, .about-card, .cv-card, .contact-form, .interest-card { 
-    background-color: #45818e !important; 
-    border-radius: 15px; 
-    padding: 30px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border: none;
-}
-
-/* YAZILAR SİMSİYAH */
-h1, h2, h3, h4, h5, p, li, label, span, strong, a.nav-link {
-    color: #000000 !important; /* TAM SİYAH YAZILAR */
-    font-weight: 600; /* Siyahın yeşil üstünde belirgin olması için kalınlaştırdık */
-}
-
-/* PROFİL RESMİ */
-.profile-img { 
-    width: 200px; 
-    height: 200px; 
-    object-fit: cover; 
-    object-position: top;
-    border-radius: 50%; 
-    border: 4px solid #000000; /* Resim çerçevesi de siyah */
-    margin-bottom: 15px;
-}
-
-/* LİSTE SİMGELERİ */
-ul { list-style: none; padding: 0; }
-ul li::before { 
-    content: "•"; 
-    color: #000000; 
-    font-weight: bold; 
-    display: inline-block; 
-    width: 1em;
-}
-
-/* FOOTER */
-footer {
-    background-color: #167d7d;
-    color: #000000 !important;
-    padding: 15px 0;
-    font-weight: bold;
-    border-top: 2px solid #000000;
-}
-
-/* ŞEHRİM SAYFASI ÖZEL AYARLARI */
-
-/* Slider resimlerinin boyutunu sabitleyer */
-.carousel-item img {
-    height: 500px; /* İstediğin yüksekliğe göre ayarla */
-    object-fit: cover;
-    border: 3px solid #000000; /* Resimlerin etrafına ince siyah çerçeve */
-}
-
-/* Slider üzerindeki yazıların (caption) siyah ve okunur olması */
-.carousel-caption {
-    background: rgba(211, 242, 235, 0.7); /* Arka plan renginden şeffaf bir katman */
-    border-radius: 15px;
-    padding: 15px;
-}
-
-.carousel-caption h5, .carousel-caption p {
-    color: #000000 !important; /* Slider içindeki yazılar da siyah */
-    font-weight: bold;
-}
-
-/* Slider butonlarını (sağ-sol) siyah yapalım ki görünsün */
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    filter: invert(1); /* Beyaz ikonları siyaha çevirir */
-}
-
-/* Navbar Sol Üst İsim Fontu */
 .navbar-brand .user-name {
-    font-family: 'Segoe UI', sans-serif; /* Temiz bir font */
-    font-weight: 300; /* ince font (Light) */
-    letter-spacing: 1px; /* Harf aralarını çok hafif açar */
-    text-transform: uppercase; /* hepsini büyük harf yapar */
-    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
     color: #ffffff !important;
 }
 
-/* Üzerine gelince çok hafif parlaması için  */
-.navbar-brand:hover .user-name {
-    opacity: 0.8;
-    transition: 0.3s;
-}
-
-
-/* Aktif Sayfa Linkini Beyaz ve Belirgin Yapar */
-.navbar-nav .nav-link.active-link {
-    color: #ffffff !important; /* Jilet gibi beyaz */
-    font-weight: 800 !important; /* Daha kalın yaparak iyice belli eder */
-    border-bottom: 2px solid #ffffff; /* Altına ince bir çizgi atar, çok şık durur */
-}
-
-/* Diğer linklerin sönük kalması için (opsiyonel) */
 .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.7) !important; /* Hafif şeffaf beyaz */
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    margin: 0 5px;
     transition: 0.3s;
 }
 
-.navbar-nav .nav-link:hover {
-    color: #ffffff !important; /* Üstüne gelince parlar */
+.navbar-nav .nav-link:hover, 
+.navbar-nav .nav-link.active-link {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* --- 3. KART YAPILARI (ORTAK) --- */
+.custom-card, .cv-card, .interest-card { 
+    background-color: #ffffff;
+    border-radius: 20px; 
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 2px solid var(--antrasit);
+    transition: transform 0.3s ease;
+}
+
+.custom-card:hover, .cv-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Koyu Temalı Kart İstenirse  */
+.bg-dark-custom {
+    background-color: #45818e !important;
+}
+
+/* --- 4. TİPOGRAFİ & RESİMLER --- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--tam-siyah);
+    font-weight: 700;
+}
+
+.profile-img { 
+    width: 180px; 
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    border: 5px solid var(--ana-yesil);
+}
+
+/* --- 5. ÖZGEÇMİŞ & LİSTELER --- */
+.custom-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.custom-list li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.custom-list li::before {
+    content: "▹";
+    color: var(--ana-yesil);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.progress {
+    height: 12px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    background-color: var(--ana-yesil) !important;
+}
+
+/* --- 6. ŞEHRİM SAYFASI  --- */
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid var(--antrasit);
+}
+
+.carousel-caption {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    padding: 10px 20px;
+    color: var(--tam-siyah) !important;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(1); /* İkonları siyah yapar */
+}
+
+/* --- 7. FOOTER --- */
+footer {
+    background-color: var(--ana-yesil);
+    color: #ffffff !important;
+    padding: 20px 0;
+    margin-top: auto;
+    border-top: 3px solid var(--antrasit);
+}
+
+/* --- 8. ÖZEL BUTONLAR --- */
+.btn-teal {
+    background-color: var(--ana-yesil);
+    color: white;
+    font-weight: bold;
+}
+
+.btn-teal:hover {
+    background-color: var(--antrasit);
+    color: white;
 }

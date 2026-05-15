@@ -15,7 +15,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hakkinda.html">Hakkımda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ozgecmis.html">Özgeçmiş</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sehrim.html">Şehrim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mirasimiz.html">Mirasımız</a></li>
                     <li class="nav-item"><a class="nav-link active-link" href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iletisim.html">İletişim</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Giriş</a></li>
                 </ul>
             </div>
@@ -23,7 +28,7 @@
     </nav>
 
     <main class="container my-5">
-        <h2 class="text-center mb-5 fw-bold border-bottom border-dark pb-3">Sevdiğim Oyunlar (Canlı API)</h2>
+        <h2 class="text-center mb-5 fw-bold border-bottom border-dark pb-3">Sevdiğim Oyunlar</h2>
         
         <div id="game-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             <div class="text-center w-100 py-5" id="loading-area">
@@ -42,7 +47,7 @@ async function oyunlariGetir() {
 
     const container = document.getElementById('game-container');
 
-    const apiKey = '68c870498a4d46328328c617b0f6990d';
+    const apiKey = '9e5d613c01c54c45b3e39331571940ec';
 
     const oyunlar = [
         "Valorant",
@@ -70,6 +75,7 @@ async function oyunlariGetir() {
             }
 
             const data = await response.json();
+            console.log(data);
 
             if (data.results && data.results.length > 0) {
 
