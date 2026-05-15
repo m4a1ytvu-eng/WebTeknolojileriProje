@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim - Proje Ödevi</title>
+    <title>İletişim - Veysel Samed Kaya</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-    <!-- Menü -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-    <span class="user-name">Veysel Samed Kaya</span>
-</a>
+            <a class="navbar-brand" href="index.html"><span class="user-name">Veysel Samed Kaya</span></a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
@@ -30,122 +27,110 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
+    <main class="container mt-5" id="app">
         <div class="row justify-content-center">
-            <div class="col-md-6 contact-form">
-                <h2 class="text-center mb-4">Bana Ulaşın</h2>
-                <!-- Form verileri gonder.php veya baska bir yere gitmeyecek, biz JS ile kontrol edecegiz -->
-                <form id="contactForm" action="gonderilen.html" method="GET" onsubmit="return validateForm()">
-                    <div class="container mt-5" id="app">
-    <div class="custom-card shadow-lg p-5">
-        <h2 class="text-center mb-4">İletişim Formu</h2>
-        <form id="contactForm">
-            <div class="mb-3">
-                <label class="form-label">Ad Soyad:</label>
-                <input type="text" v-model="formData.name" id="name" class="form-control" placeholder="Adınızı yazınız...">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">E-posta:</label>
-                <input type="email" v-model="formData.email" id="email" class="form-control" placeholder="isim@ornek.com">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Telefon:</label>
-                <input type="text" v-model="formData.phone" id="phone" class="form-control" placeholder="Sadece rakam giriniz (Örn: 05xx)">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Konu:</label>
-                <select v-model="formData.subject" id="subject" class="form-control">
-                    <option value="">Seçiniz...</option>
-                    <option value="Öneri">Öneri</option>
-                    <option value="Şikayet">Şikayet</option>
-                    <option value="Diğer">Diğer</option>
-                </select>
-            </div>
-
-           <div class="mb-3">
-    <label class="form-label d-block text-white">Cinsiyet:</label>
-    
-    <div class="form-check form-check-inline text-white">
-        <input class="form-check-input" type="radio" name="gender" id="genderErkek" v-model="formData.gender" value="Erkek">
-        <label class="form-check-label" for="genderErkek" style="cursor: pointer;">Erkek</label>
-    </div>
-    
-    <div class="form-check form-check-inline text-white">
-        <input class="form-check-input" type="radio" name="gender" id="genderKadin" v-model="formData.gender" value="Kadın">
-        <label class="form-check-label" for="genderKadin" style="cursor: pointer;">Kadın</label>
-    </div>
-</div>
-
-            <div class="mb-4">
-                <label class="form-label">Mesajınız:</label>
-                <textarea v-model="formData.message" id="message" class="form-control" rows="4"></textarea>
-            </div>
-
-            <div class="d-grid gap-2">
-                <button type="button" onclick="checkJS()" class="btn btn-info text-white">Standart JS ile Denetle</button>
-                <button type="button" @click="checkVue" class="btn btn-primary">Vue.js ile Denetle & Gönder</button>
-                <button type="reset" class="btn btn-outline-light mt-2">Temizle</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="iletisim.js"></script>
-
+            <div class="col-md-8">
+                <div class="custom-card shadow-lg p-5">
+                    <h2 class="text-center mb-4">İletişim Formu</h2>
                     
+                    <form id="contactForm" action="gonder.php" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Ad Soyad:</label>
+                            <input type="text" v-model="formData.name" name="name" id="name" class="form-control" placeholder="Adınızı yazınız...">
+                        </div>
 
-                    <div class="mb-3 d-none" id="otherSubjectArea">
-                        <label class="form-label">Lütfen Konuyu Belirtin</label>
-                        <input type="text" id="otherSubject" name="otherSubject" class="form-control" placeholder="Konu nedir?">
-                    </div>
-                    
-                </form>
+                        <div class="mb-3">
+                            <label class="form-label">E-posta:</label>
+                            <input type="email" v-model="formData.email" name="email" id="email" class="form-control" placeholder="isim@ornek.com">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Telefon:</label>
+                            <input type="text" v-model="formData.phone" name="phone" id="phone" class="form-control" placeholder="05xx">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Konu:</label>
+                            <select v-model="formData.subject" name="subject" id="subject" class="form-control">
+                                <option value="">Seçiniz...</option>
+                                <option value="Öneri">Öneri</option>
+                                <option value="Şikayet">Şikayet</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label d-block text-dark">Cinsiyet:</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="Erkek" v-model="formData.gender">
+                                <label class="form-check-label">Erkek</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="Kadın" v-model="formData.gender">
+                                <label class="form-check-label">Kadın</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Mesajınız:</label>
+                            <textarea v-model="formData.message" name="message" id="message" class="form-control" rows="4"></textarea>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="button" onclick="checkJS()" class="btn btn-info text-white">Standart JS ile Denetle</button>
+                            <button type="button" @click="checkVue" class="btn btn-primary">Vue.js ile Denetle & Gönder</button>
+                            <button type="reset" class="btn btn-outline-dark mt-2">Temizle</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <script>
-
-        document.getElementById('subject').addEventListener('change', function() {
-    let otherArea = document.getElementById('otherSubjectArea');
-    if (this.value === 'Diğer') {
-        otherArea.classList.remove('d-none');
-    } else {
-        otherArea.classList.add('d-none');
-    }
-});
-
-        function validateForm() {
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let subject = document.getElementById("subject").value;
-            let message = document.getElementById("message").value;
-
-            if (name == "" || email == "" || subject == "" || message == "") {
-                alert("Lütfen tüm alanları doldurunuz!");
-                return false;
-            }
-
-            // E-posta format kontrolü
-            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                alert("Lütfen geçerli bir e-posta adresi giriniz!");
-                return false;
-            }
-
-            return true; // Her şey tamamsa gonderilen.html'e gider
-        }
-    </script>
-
-</body>
-<footer class="mt-auto py-4 text-center" style="background-color: #167d7d;">
+    <footer class="mt-auto py-4 text-center" style="background-color: #167d7d; color: white;">
         <div class="container">
             <p class="mb-1 fw-bold">Veysel Samed Kaya | Sakarya Üniversitesi</p>
-            <p class="small opacity-50 mb-0">&copy; 2026 Kocaelispor Miras Sayfası</p>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // JS KONTROLÜ
+        function checkJS() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !email || !message) {
+                alert("Lütfen tüm alanları doldurunuz! (JS)");
+            } else if (!emailPattern.test(email)) {
+                alert("Geçerli bir mail giriniz! (JS)");
+            } else {
+                alert("JS Kontrolü Başarılı! PHP'ye gönderiliyor...");
+                document.getElementById("contactForm").submit();
+            }
+        }
+
+        // VUE KONTROLÜ
+        const app = Vue.createApp({
+            data() {
+                return {
+                    formData: { name: '', email: '', phone: '', subject: '', gender: '', message: '' }
+                }
+            },
+            methods: {
+                checkVue() {
+                    if (!this.formData.name || !this.formData.email || !this.formData.message) {
+                        alert("Lütfen tüm alanları doldurunuz! (Vue)");
+                    } else {
+                        alert("Vue Kontrolü Başarılı! PHP'ye gönderiliyor...");
+                        // Formu PHP'ye gönder
+                        document.getElementById("contactForm").submit();
+                    }
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
 </html>
